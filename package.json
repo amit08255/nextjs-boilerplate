@@ -4,6 +4,7 @@
   "description": "NextJS boilerplate to quick start with your project.",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint . --ext .jsx,.js",
     "dev": "next",
     "build": "next build",
     "start": "next start"
