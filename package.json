@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint . --ext .jsx,.js",
     "dev": "next",
-    "build": "next build",
+    "build": "npm run lint && next build",
     "start": "next start"
   },
   "author": "Amit Kumar",

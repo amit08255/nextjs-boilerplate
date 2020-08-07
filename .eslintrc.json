@@ -25,7 +25,6 @@
     "plugins": [
         "react"
     ],
-    "ignorePatterns": [ "node_modules/*", "build/*", ".next/*" ],
     "rules": {
         // Indent with 4 spaces
         "indent": ["error", 4],
