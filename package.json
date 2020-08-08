@@ -7,12 +7,12 @@
     "transpile": "npx babel ./ --out-dir dist --ignore '/**/*.spec.js','/**/*.test.js','/**/*.jsx','./dist/','./node_modules/','./.next/','./__tests__/','./pages/','./jest.config.js'",
     "lint": "eslint . --ext .jsx,.js",
     "dev": "next",
-    "prebuild": "npm run lint && npm run test && npm run transpile",
     "build": "next build",
     "start": "next start",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch"
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
+    "validate": "npm run lint && npm run test"
   },
   "author": "Amit Kumar",
   "license": "ISC",
