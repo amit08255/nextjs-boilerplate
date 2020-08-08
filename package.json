@@ -4,11 +4,14 @@
   "description": "NextJS boilerplate to quick start with your project.",
   "main": "index.js",
   "scripts": {
+    "transpile": "npx babel ./ --out-dir dist --ignore '/**/*.spec.js','/**/*.test.js','/**/*.jsx','./dist/','./node_modules/','./.next/','./__tests__/','./pages/','./jest.config.js'",
     "lint": "eslint . --ext .jsx,.js",
     "dev": "next",
-    "build": "npm run lint && next build",
+    "build": "npm run lint && npm run transpile && next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch"
   },
   "author": "Amit Kumar",
   "license": "ISC",
@@ -18,7 +21,13 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.2.2",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.0",
