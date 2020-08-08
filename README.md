@@ -28,8 +28,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://twitter.com/amit08255)
-
 NextJS boilerplate with eslint and jest configuration for static checking and test driven development. It uses tools like EsLint, Jest, Husky, Lint Staged to automate linting, testing and build with git hooks and node scripts.
 
 ### Built With
