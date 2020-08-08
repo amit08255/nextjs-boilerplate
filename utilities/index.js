@@ -1,23 +1,74 @@
 import deepClone from './deep-clone';
 
+/**
+ * Compose utility to design reusable code with small functions in pipeline.
+ * Functions in compose utility is executed from right to left.
+ * Right-most function can receive any number of parameters but other functions
+ * in pipeline can only receive one parameter from pipeline.
+ * Below code will execute add function then inc function whereas add function receives
+ * 2 and 3 as parameter whereas inc function receives value returned by add function.
+ * @example
+ * const addAndInc = compose(increment, add);
+ * addAndInc(2, 3);
+ * @param  {...any} fns Functions to execute in pipeline
+ */
 export const compose = (...fns) => (...args) => fns.reduceRight(
     (res, fn) => [fn.call(null, ...res)], args,
 )[0];
 
+/**
+ * Map utility is used with mappable values like - array to map values with
+ * given function to process on every value in mappable.
+ * @example
+ * const processArray = map(converValueToUpperCase);
+ * processArray(stringArray);
+ * @param {function} fn
+ * @returns {(mappable:any) => any}
+ */
 export const map = (fn) => (mappable) => mappable.map(fn);
 
+/**
+ * Filters array values with given function and array
+ * @example
+ * const filterArr = filter(fiterNumberValues);
+ * const filteredArray = filterArr(arrValue);
+ * @param {function} fn
+ * @returns {(arr:Array<any>) => Array<any>}
+ */
 export const filter = (fn) => (arr) => arr.reduce(
     (newArr, item) => (fn(item) ? newArr.concat([item]) : newArr), [],
 );
 
+/**
+ * Returns sum of two numbers
+ * @param {number} a
+ * @returns {(b:number) => number}
+ */
 export const add = (a) => (b) => a + b;
 
 export const inc = add(1);
 
+/**
+ * Calls function f when function cond returns true for value x
+ * @param {function} cond
+ * @param {function} f
+ * @returns {(x:any) => any}
+ */
 export const when = (cond, f) => (x) => (cond(x) ? f(x) : x);
 
+/**
+ * Calls function f when function cond returns false for value x
+ * @param {function} cond
+ * @param {function} f
+ * @returns {(x:any) => any}
+ */
 export const unless = (cond, f) => (x) => (cond(x) ? x : f(x));
 
+/**
+ * Checks equality of values
+ * @param {any} a
+ * @returns {(b:any) => boolean}
+ */
 export const isEqual = (a) => (b) => a === b;
 
 export const isNotEqual = (a) => (b) => a !== b;
@@ -33,10 +84,6 @@ export const isValueEmpty = (val) => (`${val}`).trim().length <= 0;
 export const isValueNumber = (val) => typeof val === 'number';
 
 export const isValidValue = (val) => (val !== undefined && val !== null);
-
-export const isValidStringOrNumber = (val) => (
-    isValidValue(val) && (isValueNumber(val) || !isValueEmpty(val))
-);
 
 export const isArrayEmpty = (val) => Array.isArray(val) && val.length < 1;
 
