@@ -21,5 +21,5 @@ module.exports = {
         'json',
         'node',
     ],
-    testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+    testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/', '<rootDir>/dist/'],
 };

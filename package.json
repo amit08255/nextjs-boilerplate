@@ -9,7 +9,7 @@
     "dev": "next",
     "build": "npm run lint && npm run transpile && next build",
     "start": "next start",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch"
   },
