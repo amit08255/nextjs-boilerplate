@@ -83,9 +83,9 @@ npm start
 * **npm run dev** - Start development server.
 * **npm run build** - Generate production build of project.
 * **npm start** - Start production server after building.
-* **npm test** - Run tests with jest.
-* **test:watch** - Run jest in watch mode to auto run test on file change.
-* **test:debug** - Run jest in debug mode to step through code in chrome debug tool. Go to [chrome://inspect](chrome://inspect) in Chrome and click inspect under remote target to open Chrome inspect tool for debug.
+* **npm run test** - Run tests with jest.
+* **npm run test:watch** - Run jest in watch mode to auto run test on file change.
+* **npmr run test:debug** - Run jest in debug mode to step through code in chrome debug tool. Go to [chrome://inspect](chrome://inspect) in Chrome and click inspect under remote target to open Chrome inspect tool for debug.
 
 
 <!-- CONTRIBUTING -->
