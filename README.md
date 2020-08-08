@@ -78,6 +78,8 @@ npm start
 
 ## Available actions
 
+* **npm run lint** - Run linting with EsLint.
+* **npm run transpile** - Transpile code with babel.
 * **npm run dev** - Start development server.
 * **npm run build** - Generate production build of project.
 * **npm start** - Start production server after building.
