@@ -6,23 +6,24 @@ module.exports = {
     ["@babel/preset-env", {"modules": isTest ? 'commonjs' : false}]
   ],
   "plugins": [
-    ["module-resolver", {
-    "root": ["./dist"]/*,
-    "alias": {
-        "utilities": "./utilities",
-        "services": "./services",
-        "contexts": "./contexts",
-        "components": "./components",
-        "containers": "./containers"
-    }*/
+    ["@babel/plugin-transform-runtime", {
+      "asyncGenerators": false,
+      "generators": false,
+      "async": false
     }],
-    /*[
+    ["module-resolver", {
+    "root": ["./dist"],
+    "alias": {
+        "utilities": "./utilities"
+    }
+    }],
+    [
       "styled-components",
       {
         "ssr": true,
         "displayName": true,
         "preprocess": false
       }
-    ]*/
+    ]
 ]
 }
