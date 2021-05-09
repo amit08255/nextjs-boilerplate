@@ -10,6 +10,7 @@ const nextConfiguration = withCSS({
     webpack: (config) => {
         const newConfig = config;
         newConfig.resolve.alias.utilities = path.join(__dirname, 'utilities'); // folder alias 1
+        newConfig.resolve.alias.components = path.join(__dirname, 'components'); // folder alias 2
         return newConfig;
     },
 });
