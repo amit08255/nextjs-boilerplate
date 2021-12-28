@@ -1,8 +1,7 @@
 const path = require('path');
-const withCSS = require('@zeit/next-css');
 
 // Used to set folders as alias to directly use in nextjs
-const nextConfiguration = withCSS({
+const nextConfiguration = ({
     publicRuntimeConfig: {
     // Will be available on both server and client
         NODE_ENV: process.env.NODE_ENV,
