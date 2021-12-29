@@ -85,6 +85,16 @@ npm start
 * **npm run test:watch** - Run jest in watch mode to auto run test on file change.
 * **npmr run test:debug** - Run jest in debug mode to step through code in chrome debug tool. Go to [chrome://inspect](chrome://inspect) in Chrome and click inspect under remote target to open Chrome inspect tool for debug.
 
+## Fix Husky script not install issue
+
+Run below commands:
+
+```sh
+npm install husky --save-dev
+npx husky install
+npm install lint-staged --save-dev
+npx husky add .husky/pre-commit "node_modules/.bin/lint-staged && npm run test && npm run transpile && npm run build"
+```
 
 <!-- CONTRIBUTING -->
 ## Contributing
