@@ -5,18 +5,24 @@
         "es6": true,
         "jest": true
     },
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+		"plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "settings": {
         "react": {
             "version": "detect"
         },
         "import/resolver": {
-            "babel-module": {}
+            "babel-module": {},
+			"node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                "moduleDirectory": ["node_modules", "."]
+            }
         }
     },
     "parserOptions": {
@@ -27,9 +33,20 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react", "jest-dom"
+        "react", "jest-dom", "@typescript-eslint"
     ],
     "rules": {
+	"import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ],
+    "linebreak-style": 0,
 	"template-curly-spacing" : "off",
         // Indent with 4 spaces
         "indent": ["error", 4, {
@@ -43,6 +60,7 @@
         "jest-dom/prefer-checked": "error",
         "jest-dom/prefer-enabled-disabled": "error",
         "jest-dom/prefer-required": "error",
-        "jest-dom/prefer-to-have-attribute": "error"
+        "jest-dom/prefer-to-have-attribute": "error",
+		"react/jsx-filename-extension": [2, { "extensions": [".jsx", ".tsx"] }]
     }
 }
