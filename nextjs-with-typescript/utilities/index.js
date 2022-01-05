@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable func-names */
 import deepClone from './deep-clone';
 
 /**
@@ -12,9 +14,9 @@ import deepClone from './deep-clone';
  * addAndInc(2, 3);
  * @param  {...any} fns Functions to execute in pipeline
  */
-export const compose = (...fns) => (...args) => fns.reduceRight(
-    (res, fn) => [fn.call(null, ...res)], args,
-)[0];
+export const compose = (...fns) => (...args) => (
+    fns.reduceRight((res, fn) => [fn.call(null, ...res)], args)[0]
+);
 
 /**
  * Map utility is used with mappable values like - array to map values with
@@ -35,9 +37,8 @@ export const map = (fn) => (mappable) => mappable.map(fn);
  * @param {function} fn
  * @returns {(arr:Array<any>) => Array<any>}
  */
-export const filter = (fn) => (arr) => arr.reduce(
-    (newArr, item) => (fn(item) ? newArr.concat([item]) : newArr), [],
-);
+export const filter = (fn) => (arr) => arr.reduce((newArr, item) => (
+    fn(item) ? newArr.concat([item]) : newArr), []);
 
 /**
  * Returns sum of two numbers
@@ -74,8 +75,6 @@ export const isEqual = (a) => (b) => a === b;
 export const isNotEqual = (a) => (b) => a !== b;
 
 export const concatString = (a) => (b) => a + b;
-
-export const getEmptyObject = () => {};
 
 export const isObject = (value) => typeof value === 'object';
 
@@ -133,9 +132,9 @@ export const isPromise = (promise) => {
  * @param {function} callback
  * @returns{(promise:Promise) => any}
  */
-export const andThen = (callback) => (promise) => (
-    isPromise(promise) === true ? promise.then(callback) : null
-);
+export const andThen = (callback) => function (promise) {
+    return isPromise(promise) === true ? promise.then(callback) : null;
+};
 
 /**
  * Returns the result of applying the onFailure function to the value inside a failed promise.
@@ -143,9 +142,9 @@ export const andThen = (callback) => (promise) => (
  * @param {function} callback
  * @returns{(promise:Promise) => any}
  */
-export const otherwise = (callback) => (promise) => (
-    isPromise(promise) === true ? promise.then(null, callback) : null
-);
+export const otherwise = (callback) => function (promise) {
+    return isPromise(promise) === true ? promise.then(null, callback) : null;
+};
 
 /**
  * Returns whether or not a path exists in an object. Only the object's
