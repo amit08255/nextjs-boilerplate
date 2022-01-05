@@ -18,11 +18,13 @@ module.exports = {
     moduleFileExtensions: [
         'js',
         'jsx',
+        'ts',
+        'tsx',
         'json',
         'node',
     ],
     transform: {
-        '^.+\\.(js|jsx)$': 'babel-jest',
+        '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
     },
     testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/', '<rootDir>/dist/'],
 };

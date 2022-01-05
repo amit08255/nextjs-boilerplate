@@ -1,8 +1,9 @@
 import React from 'react';
+import Title from 'components/Title';
 
 function Homepage() {
     return (
-        <div>Homepage</div>
+        <Title>Hello World</Title>
     );
 }
 
