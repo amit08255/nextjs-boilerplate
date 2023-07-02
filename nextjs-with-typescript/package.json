@@ -8,7 +8,6 @@
     "lint": "eslint . --ext .jsx,.js,.tsx,.ts",
     "lint-staged": "lint-staged",
     "dev": "next",
-    "prebuild": "npm run lint-staged && npm run test",
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
