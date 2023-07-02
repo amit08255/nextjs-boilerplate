@@ -15,7 +15,8 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
-    "validate": "npm run lint && npm run test"
+    "validate": "npm run lint && npm run test",
+    "postinstall": "npx husky uninstall && npx husky install && npx husky add .husky/pre-commit \"node_modules/.bin/lint-staged && npm run test && npm run build\""
   },
   "author": "Amit Kumar",
   "license": "ISC",
