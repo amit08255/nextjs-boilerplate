@@ -4,7 +4,6 @@ module.exports = {
         ['@babel/preset-env', { modules: false }],
     ],
     plugins: [
-        ['@babel/plugin-proposal-class-properties'],
         ['@babel/plugin-transform-runtime', {
             asyncGenerators: false,
             generators: false,
