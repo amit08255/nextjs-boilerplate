@@ -36,18 +36,19 @@
         "react", "jest-dom", "@typescript-eslint"
     ],
     "rules": {
-	"import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-              "js": "never",
-              "jsx": "never",
-              "ts": "never",
-              "tsx": "never"
-            }
-         ],
-    "linebreak-style": 0,
-	"template-curly-spacing" : "off",
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "import/extensions": [
+                "error",
+                "ignorePackages",
+                {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+                }
+            ],
+        "linebreak-style": 0,
+        "template-curly-spacing" : "off",
         // Indent with 4 spaces
         "indent": ["error", 4, {
             "ignoredNodes": ["TemplateLiteral"]
